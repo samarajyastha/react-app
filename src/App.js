@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Monsters Rolex</h1>
+      <h1>Monsters Rolodex</h1>
       <SearchBox
         placeholder={"Search monsters..."}
         handleChange={(e) => setSearchField(e.target.value)}
