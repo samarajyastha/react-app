@@ -1,27 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CardList from "./components/card-list/CardList";
 
-function App() {
-  const [monsters, setMonsters] = useState([
-    {
-      id: 1,
-      name: "Goblin",
-    },
-    {
-      id: 2,
-      name: "Orc",
-    },
-    {
-      id: 3,
-      name: "Troll",
-    },
-  ]);
+const App = () => {
+  const [monsters, setMonsters] = useState([]);
+  const [searchField, setSearchField] = useState("");
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((users) => setMonsters(users));
+  }, [searchField]);
+
   return (
     <div className="App">
-      {monsters.map((monster) => (
-        <h2 key={monster.id}>{monster.name}</h2>
-      ))}
+      <input
+        type="search"
+        placeholder="Search monsters..."
+        onChange={(e) => setSearchField(e.target.value)}
+      />
+      <CardList monsters={monsters} />
     </div>
   );
-}
+};
 
 export default App;

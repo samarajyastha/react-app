@@ -16,3 +16,13 @@ h2{
   font-weight: bold;
   text-align: center;
 }
+
+input{
+  width: 20rem;
+  padding: 12px 20px;
+  margin: 8px auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
